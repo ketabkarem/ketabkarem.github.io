@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kitab Karim - sign-in</title>
+<meta name="robots" content="noindex">
+</head>
+<body style="font-family:system-ui,sans-serif;max-width:640px;margin:40px auto;padding:0 16px">
+<p id="msg">Completing sign-in&hellip;</p>
+<script>
+  // TikTok returns ?code=...&state=... here; hand it to the publisher running on this computer only.
+  var q = window.location.search;
+  if (q && q.indexOf("code=") !== -1 || q.indexOf("error=") !== -1) {
+    window.location.replace("http://127.0.0.1:8768/callback" + q);
+  } else {
+    document.getElementById("msg").textContent = "Nothing to do here.";
+  }
+</script>
+</body>
+</html>
